@@ -1,0 +1,37 @@
+{
+    "name": "harrk/gamejolt-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Harrk",
+            "homepage": "https://harrkus.com"
+        }
+    ],
+    "description": "A PHP library for the Game Jolt API.",
+    "homepage": "https://github.com/Harrk/gamejolt-api",
+    "keywords": [
+        "Gamejolt", "Game", "Jolt", "API", "PHP", "Composer", "Gamedev"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Harrk\\GameJoltApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Harrk\\GameJoltApi\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5",
+        "phpstan/phpstan": "^0.11.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse ./src --level=7"
+    }
+}
