@@ -4,7 +4,6 @@ namespace Harrk\GameJoltApi;
 
 use GuzzleHttp\Client;
 use Harrk\GameJoltApi\Callers\AbstractCaller;
-use Harrk\GameJoltApi\Exceptions\GamejoltApiException;
 
 class ApiCallService {
     protected $caller;
