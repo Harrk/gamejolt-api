@@ -24,6 +24,11 @@ $api = new GamejoltApi(new GamejoltConfig(
 ```
 
 ## Endpoints
+Below are examples of how you would interact with each endpoint. Bare in mind that these are only examples,
+and may not use all parameter options.
+
+Refer to the [Game Jolt API Documentation](https://gamejolt.com/game-api/doc) or the source code for more options.
+
 ### Data Store
 The Data Store API can be used to store/retrieve data in the cloud.
 
