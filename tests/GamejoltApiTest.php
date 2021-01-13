@@ -14,18 +14,12 @@ use Harrk\GameJoltApi\GamejoltConfig;
 use PHPUnit\Framework\TestCase;
 
 class GamejoltApiTest extends TestCase {
-
-    /**
-     * @var GamejoltConfig
-     */
-    private $config;
-
     /**
      * @var GamejoltApi
      */
     private $api;
 
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
 
         $config = new GamejoltConfig(
