@@ -5,10 +5,23 @@ namespace Harrk\GameJoltApi;
 use GuzzleHttp\Client;
 use Harrk\GameJoltApi\Callers\AbstractCaller;
 
+/**
+ * The underlying service created internally from a caller.
+ */
 class ApiCallService {
+    /**
+     * @var AbstractCaller
+     */
     protected $caller;
+
+    /**
+     * @var Client
+     */
     protected $client;
 
+    /**
+     * @var string
+     */
     protected $method = 'GET';
 
     public function __construct(AbstractCaller $caller) {
