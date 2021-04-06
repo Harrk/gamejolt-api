@@ -26,11 +26,19 @@ class ApiCallService {
      */
     protected $method = 'GET';
 
+    /**
+     * @param  AbstractCaller  $caller
+     */
     public function __construct(AbstractCaller $caller) {
         $this->caller = $caller;
         $this->client = new Client();
     }
 
+    /**
+     * @return array
+     * @throws TimeOutException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function execute() {
         try {
             $request = $this->client->request(
@@ -50,8 +58,9 @@ class ApiCallService {
             );
         }
 
-        $body = json_decode($request->getBody()->getContents(), true);
-
-        return $body;
+        return json_decode(
+            $request->getBody()->getContents(),
+            true
+        );
     }
 }
