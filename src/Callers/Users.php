@@ -2,9 +2,7 @@
 
 namespace Harrk\GameJoltApi\Callers;
 
-use Harrk\GameJoltApi\ApiCaller;
-
-class Users extends  AbstractCaller {
+class Users extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/users/fetch

@@ -2,10 +2,9 @@
 
 namespace Harrk\GameJoltApi\Callers;
 
-use Harrk\GameJoltApi\ApiCaller;
 use Harrk\GameJoltApi\Exceptions\InvalidParameterException;
 
-class Sessions extends  AbstractCaller {
+class Sessions extends AbstractCaller {
     const STATUS_ACTIVE = 'active';
     const STATUS_IDLE = 'idle';
 

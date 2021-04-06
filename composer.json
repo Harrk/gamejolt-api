@@ -32,6 +32,6 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "analyse": "vendor/bin/phpstan analyse ./src --level=7"
+        "analyse": "vendor/bin/phpstan analyse ./src --level=5"
     }
 }

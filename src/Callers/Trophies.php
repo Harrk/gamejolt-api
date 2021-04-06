@@ -2,9 +2,7 @@
 
 namespace Harrk\GameJoltApi\Callers;
 
-use Harrk\GameJoltApi\ApiCaller;
-
-class Trophies extends  AbstractCaller {
+class Trophies extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/trophies/fetch
