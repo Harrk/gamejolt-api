@@ -116,6 +116,16 @@ $api->users()->fetch('username', 'user_token');
 $api->users()->auth('username', 'user_token');
 ```
 
+### Catching Exceptions
+Here is a example on how to catch exceptions:
+```php
+try {
+    $auth = $api->users()->auth('username', 'user_token');
+} catch (TimeOutException $e) {
+    return redirect()->route('home')->with('error', $e->getMessage());
+}
+```
+
 ## Testing
 Two commands have been provided to simplify the running of tests.
 
