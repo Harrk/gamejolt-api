@@ -1,5 +1,7 @@
 # Gamejolt API PHP Library
 
+[![CircleCI](https://circleci.com/gh/Harrk/gamejolt-api/tree/master.svg?style=svg)](https://circleci.com/gh/Harrk/gamejolt-api/tree/master)
+
 https://gamejolt.com
 
 This library provides full (except batching) coverage of Game Jolt's API (Trophies, Scores, Sessions, etc...)
