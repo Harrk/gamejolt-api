@@ -5,23 +5,19 @@ namespace Harrk\GameJoltApi\Callers;
 use Harrk\GameJoltApi\Exceptions\InvalidParameterException;
 
 class Sessions extends AbstractCaller {
-    const STATUS_ACTIVE = 'active';
-    const STATUS_IDLE = 'idle';
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_IDLE = 'idle';
 
-    const STATUSES = [
+    public const STATUSES = [
         self::STATUS_ACTIVE,
         self::STATUS_IDLE,
     ];
 
     /**
      * @link https://gamejolt.com/game-api/doc/sessions/open
-     *
-     * @param string $username
-     * @param string $user_token
-     *
-     * @return array
      */
-    public function open($username, $user_token) {
+    public function open(string $username, string $user_token): array
+    {
         return $this->call('sessions/open', compact(
             'username', 'user_token'
         ));
@@ -30,15 +26,10 @@ class Sessions extends AbstractCaller {
     /**
      * @link https://gamejolt.com/game-api/doc/sessions/ping
      *
-     * @param string $username
-     * @param string $user_token
-     * @param string|null $status
-     *
-     * @return array
-     *
      * @throws InvalidParameterException
      */
-    public function ping($username, $user_token, string $status = null) {
+    public function ping(string $username, string $user_token, ?string $status = null): array
+    {
         if (null !== $status) {
             if (! in_array($status, self::STATUSES)) {
                 throw new InvalidParameterException(
@@ -54,13 +45,9 @@ class Sessions extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/sessions/check
-     *
-     * @param string $username
-     * @param string $user_token
-     *
-     * @return array
      */
-    public function check($username, $user_token) {
+    public function check(string $username, string $user_token): array
+    {
         return $this->call('sessions/check', compact(
             'username', 'user_token'
         ));
@@ -68,13 +55,9 @@ class Sessions extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/sessions/close
-     *
-     * @param string $username
-     * @param string $user_token
-     *
-     * @return array
      */
-    public function close($username, $user_token) {
+    public function close(string $username, string $user_token): array
+    {
         return $this->call('sessions/close', compact(
             'username', 'user_token'
         ));

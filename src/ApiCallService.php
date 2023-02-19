@@ -3,6 +3,7 @@
 namespace Harrk\GameJoltApi;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Harrk\GameJoltApi\Exceptions\TimeOutException;
 use Harrk\GameJoltApi\Callers\AbstractCaller;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +36,10 @@ class ApiCallService {
     }
 
     /**
-     * @return array
      * @throws TimeOutException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
-    public function execute() {
+    public function execute(): array {
         try {
             $request = $this->client->request(
                 $this->method,
