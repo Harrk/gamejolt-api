@@ -19,9 +19,12 @@ Create an instance of GamejoltApi and provide a GamejoltConfig
 to begin making API calls to Game Jolt.
 
 ```php
+$gameId = 0; // Your game's ID
+$gamePrivaykey = "Your game's private key";
+
 $api = new GamejoltApi(new GamejoltConfig(
-    'mygameid',
-    'mygameprivatekey'
+    $gameId,
+    $gamePrivaykey
 ));
 ```
 
