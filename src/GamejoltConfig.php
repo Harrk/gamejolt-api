@@ -3,28 +3,12 @@
 namespace Harrk\GameJoltApi;
 
 class GamejoltConfig {
+    protected string $endpoint = 'https://api.gamejolt.com/api/game/v1_2/';
+    protected string $privateKey;
+    protected int $gameId;
 
-    /**
-     * @var string Game Jolt API Endpoint
-     */
-    protected $endpoint = 'https://api.gamejolt.com/api/game/v1_2/';
-
-    /**
-     * @var string Game Jolt game private key
-     */
-    protected $privateKey;
-
-    /**
-     * @var int Game Jolt game ID
-     */
-    protected $gameId;
-
-    /**
-     * @param int $gameId
-     * @param string $privateKey
-     * @param null|string $endpoint
-     */
-    public function __construct($gameId, $privateKey, $endpoint = null) {
+    public function __construct(int $gameId, string $privateKey, ?string $endpoint = null)
+    {
         $this->privateKey = $privateKey;
         $this->gameId = $gameId;
 
@@ -35,25 +19,25 @@ class GamejoltConfig {
 
     /**
      * Retrieve the game's private key
-     * @return string
      */
-    public function getPrivateKey() {
+    public function getPrivateKey(): string
+    {
         return $this->privateKey;
     }
 
     /**
      * Retrieve the game's id
-     * @return int
      */
-    public function getGameId() {
+    public function getGameId(): int
+    {
         return $this->gameId;
     }
 
     /**
      * Retrieve Game Jolt's API endpoint
-     * @return string
      */
-    public function getEndpoint() {
+    public function getEndpoint(): string
+    {
         return $this->endpoint;
     }
 }

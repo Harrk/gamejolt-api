@@ -6,13 +6,9 @@ class Friends extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/friends/fetch
-     *
-     * @param string $username
-     * @param string $user_token
-     *
-     * @return array
      */
-    public function fetch($username, $user_token) {
+    public function fetch(string $username, string $user_token): array
+    {
         return $this->call('friends', compact(
             'username', 'user_token'
         ));

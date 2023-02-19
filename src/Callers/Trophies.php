@@ -6,15 +6,9 @@ class Trophies extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/trophies/fetch
-     *
-     * @param string $username
-     * @param string $user_token
-     * @param bool $achieved
-     * @param integer[] $trophy_ids
-     *
-     * @return array
      */
-    public function fetch($username, $user_token, $achieved = false, array $trophy_ids = []) {
+    public function fetch(string $username, string $user_token, bool $achieved = false, array $trophy_ids = []): array
+    {
         $trophy_id = implode(',', $trophy_ids);
 
         return $this->call('trophies', compact(
@@ -24,14 +18,9 @@ class Trophies extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/trophies/add-achieved
-     *
-     * @param string $username
-     * @param string $user_token
-     * @param integer $trophy_id
-     *
-     * @return array
      */
-    public function addAchieved($username, $user_token, $trophy_id) {
+    public function addAchieved(string $username, string $user_token, int $trophy_id): array
+    {
         return $this->call('trophies/add-achieved', compact(
             'username', 'user_token', 'trophy_id'
         ));
@@ -39,14 +28,9 @@ class Trophies extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/trophies/remove-achieved
-     *
-     * @param string $username
-     * @param string $user_token
-     * @param integer $trophy_id
-     *
-     * @return array
      */
-    public function removeAchieved($username, $user_token, $trophy_id) {
+    public function removeAchieved(string $username, string $user_token, int $trophy_id): array
+    {
         return $this->call('trophies/remove-achieved', compact(
             'username', 'user_token', 'trophy_id'
         ));

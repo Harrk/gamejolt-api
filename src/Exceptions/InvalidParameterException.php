@@ -2,5 +2,7 @@
 
 namespace Harrk\GameJoltApi\Exceptions;
 
-class InvalidParameterException extends \Exception {
+use Exception;
+
+class InvalidParameterException extends Exception {
 }

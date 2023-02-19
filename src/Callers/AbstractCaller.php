@@ -6,28 +6,18 @@ use Harrk\GameJoltApi\ApiCallService;
 use Harrk\GameJoltApi\GamejoltConfig;
 
 class AbstractCaller {
-
-    /**
-     * @var string
-     */
-    protected $uri;
-
-    /**
-     * @var array
-     */
-    protected $params;
-
-    /**
-     * @var GamejoltConfig
-     */
-    protected $gameJoltConfig;
+    protected string $uri;
+    protected array $params;
+    protected GamejoltConfig $gameJoltConfig;
 
 
-    public function __construct(GamejoltConfig $gamejoltConfig) {
+    public function __construct(GamejoltConfig $gamejoltConfig)
+    {
         $this->gameJoltConfig = $gamejoltConfig;
     }
 
-    protected function getSignature(string $url, array $params = []) {
+    protected function getSignature(string $url, array $params = []): string
+    {
         $urlWithPrivateKey = $url . $this->gameJoltConfig->getPrivateKey();
         $toHashString = $urlWithPrivateKey;
 
@@ -46,7 +36,8 @@ class AbstractCaller {
         return sha1($toHashString);
     }
 
-    public function getFullUrl($withSignature = false) {
+    public function getFullUrl(bool $withSignature = false)
+    {
         $url = $this->gameJoltConfig->getEndpoint() . $this->uri . '/';
 
         $url .= '?' . http_build_query($this->getParams());
@@ -58,23 +49,18 @@ class AbstractCaller {
         return $url;
     }
 
-    public function call($uri, $params = []) {
+    public function call(string $uri, array $params = []): array
+    {
         $this->uri = $uri;
-        $this->params = array_merge(
-            [
-                'game_id' => $this->gameJoltConfig->getGameId()
-            ],
-            $params
-        );
+        $this->params = array_merge([
+            'game_id' => $this->gameJoltConfig->getGameId()
+        ], $params);
 
-        $apiCallService = new ApiCallService($this);
-
-        return $apiCallService->execute();
+        return (new ApiCallService($this))->execute();
     }
 
-    public function getParams() {
-        return array_filter((array) $this->params, function ($param) {
-            return ! empty($param);
-        });
+    public function getParams(): array
+    {
+        return array_filter($this->params, static fn ($param) => ! empty($param));
     }
 }

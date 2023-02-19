@@ -2,5 +2,7 @@
 
 namespace Harrk\GameJoltApi\Exceptions;
 
-class TimeOutException extends \Exception {
+use Exception;
+
+class TimeOutException extends Exception {
 }

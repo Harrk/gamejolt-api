@@ -6,10 +6,9 @@ class Time extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/time/fetch
-     *
-     * @return array
      */
-    public function fetch() {
+    public function fetch(): array
+    {
         return $this->call('time/time');
     }
 

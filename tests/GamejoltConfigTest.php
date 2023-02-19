@@ -12,24 +12,28 @@ class GamejoltConfigTest extends TestCase {
      */
     private $config;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
 
         $this->config = new GamejoltConfig(
-            'my-game-id',
+            0,
             'my-game-private-key'
         );
     }
 
-    public function testConfigGameId() {
-        $this->assertEquals('my-game-id', $this->config->getGameId());
+    public function testConfigGameId(): void
+    {
+        $this->assertEquals(0, $this->config->getGameId());
     }
 
-    public function testConfigPrivateKey() {
+    public function testConfigPrivateKey(): void
+    {
         $this->assertEquals('my-game-private-key', $this->config->getPrivateKey());
     }
 
-    public function testConfigEndpoint() {
+    public function testConfigEndpoint(): void
+    {
         $this->assertEquals('https://api.gamejolt.com/api/game/v1_2/', $this->config->getEndpoint());
     }
 }

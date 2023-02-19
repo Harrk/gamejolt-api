@@ -5,14 +5,14 @@ namespace Harrk\GameJoltApi\Callers;
 use Harrk\GameJoltApi\Exceptions\InvalidParameterException;
 
 class DataStore extends AbstractCaller {
-    const OPERATION_ADD = 'add';
-    const OPERATION_SUBTRACT = 'subtract';
-    const OPERATION_MULTIPLY = 'multiply';
-    const OPERATION_DIVIDE = 'divide';
-    const OPERATION_APPEND = 'append';
-    const OPERATION_PREPEND = 'prepend';
+    public const OPERATION_ADD = 'add';
+    public const OPERATION_SUBTRACT = 'subtract';
+    public const OPERATION_MULTIPLY = 'multiply';
+    public const OPERATION_DIVIDE = 'divide';
+    public const OPERATION_APPEND = 'append';
+    public const OPERATION_PREPEND = 'prepend';
 
-    CONST OPERATIONS = [
+    public const OPERATIONS = [
         self::OPERATION_ADD,
         self::OPERATION_SUBTRACT,
         self::OPERATION_MULTIPLY,
@@ -23,14 +23,9 @@ class DataStore extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/data-store/fetch
-     *
-     * @param string $key
-     * @param null|string $username
-     * @param null|string $user_token
-     *
-     * @return array
      */
-    public function fetch($key, $username = null, $user_token = null) {
+    public function fetch(string $key, ?string $username = null, ?string $user_token = null): array
+    {
         return $this->call('data-store', compact(
             'key', 'username', 'user_token'
         ));
@@ -38,14 +33,9 @@ class DataStore extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/data-store/get-keys
-     *
-     * @param null|string $pattern
-     * @param null|string $username
-     * @param null|string $user_token
-     *
-     * @return array
      */
-    public function getKeys($pattern = null, $username = null, $user_token = null) {
+    public function getKeys(?string $pattern = null, ?string $username = null, ?string $user_token = null): array
+    {
         return $this->call('data-store/get-keys', compact(
             'pattern', 'username', 'user_token'
         ));
@@ -53,14 +43,9 @@ class DataStore extends AbstractCaller {
 
     /**
      * @link https://gamejolt.com/game-api/doc/data-store/remove
-     *
-     * @param string $key
-     * @param null|string $username
-     * @param null|string $user_token
-     *
-     * @return array
      */
-    public function remove($key, $username = null, $user_token = null) {
+    public function remove(string $key, ?string $username = null, ?string $user_token = null): array
+    {
         return $this->call('data-store/remove', compact(
             'key', 'username', 'user_token'
         ));
